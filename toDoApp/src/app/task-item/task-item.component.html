@@ -1,0 +1,13 @@
+<section class="to_do" *ngIf="toDoItems.length"  >
+  <div class='center' *ngFor="let item of toDoItems" >
+    <button class= 'checkbox icon'>
+      <i  (click)="togle(item)" class="material-icons">{{item.completed ? 'check_box' : 'check_box_outline_blank'}}</i>
+    </button>
+      <span>{{item.name}}</span>
+    <div class="actions">
+        <button class= 'delete icon' >
+            <i class="material-icons" (click)='delete(item)'>delete</i>
+          </button>
+    </div>
+  </div>
+</section>

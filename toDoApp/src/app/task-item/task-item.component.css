@@ -1,0 +1,14 @@
+.center {
+    text-align: center;
+    display: flex;
+    align-items: center;
+}
+
+
+.to_do {
+    display: flex;
+    justify-content: center;
+    flex-direction: column;
+    align-items: center;
+}
+
