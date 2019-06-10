@@ -13,7 +13,7 @@ export class ToDoItem {
 }
 
 let toDoItems: ToDoItem[] = [{ name: 'clean room', task: 'clean living room', completed: false },
-{ name: 'wash dishes', task: 'wash dishesssssssssss', completed: true }]
+                             { name: 'wash dishes', task: 'wash dishesssssssssss', completed: true }]
 
 
 
@@ -24,12 +24,10 @@ let toDoItems: ToDoItem[] = [{ name: 'clean room', task: 'clean living room', co
 })
 export class TaskItemComponent implements OnInit {
   toDoItems: ToDoItem[] = toDoItems;
-  newName:string="";
-  newTask:string="";
-
+  newName: string = "";
+  newTask: string = "";
 
   constructor() {
-
     this.toDoItems = toDoItems
   }
 
@@ -38,19 +36,18 @@ export class TaskItemComponent implements OnInit {
 
 
   create() {
- 
     let toDoItem: ToDoItem = new ToDoItem(this.newName, this.newTask)
 
     this.toDoItems.push(toDoItem)
-
-    this.newName='';
-    this.newTask='';
+    this.newName = '';
+    this.newTask = '';
   };
 
 
   togle(item: ToDoItem) {
     item.completed = !item.completed
   }
+
   delete(item) {
     let index = this.toDoItems.indexOf(item);
     if (index > -1) {
