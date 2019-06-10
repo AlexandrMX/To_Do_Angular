@@ -1,13 +1,30 @@
-<section class="to_do" *ngIf="toDoItems.length"  >
-  <div class='center' *ngFor="let item of toDoItems" >
-    <button class= 'checkbox icon'>
-      <i  (click)="togle(item)" class="material-icons">{{item.completed ? 'check_box' : 'check_box_outline_blank'}}</i>
+<form class="todo-form" (ngSubmit)="create(); todoForm.reset();"  #todoForm = "ngForm" >
+  <div class="center_inputs" >
+    <input class='task_input' type="text" name="taskName" [(ngModel)]="newName"  placeholder="Add task name here..." required>
+  </div>
+  <div  class="center_inputs">
+    <textarea class='task_name_input' type="text" name="task" [(ngModel)]="newTask"  placeholder="Add task here..." required ></textarea>
+  </div>
+  <div>
+    <button class="add_task_btn" type="submit">
+      Add new TASk
     </button>
-      <span>{{item.name}}</span>
+  </div>
+</form>
+
+
+<section class="to_do" *ngIf="toDoItems.length">
+  <div class='center' *ngFor="let item of toDoItems">
+    <div [ngClass]="{task_done: item.completed}">{{item.name}}</div>
+    <div [ngClass]="{task_done: item.completed}">{{item.task}}</div>
+    <button class='checkbox icon '>
+      <i (click)="togle(item)" class="material-icons">{{item.completed ? 'check_box' : 'check_box_outline_blank'}}</i>
+    </button>
+
     <div class="actions">
-        <button class= 'delete icon' >
-            <i class="material-icons" (click)='delete(item)'>delete</i>
-          </button>
+      <button class='delete icon'>
+        <i class="material-icons" (click)='delete(item)'>delete</i>
+      </button>
     </div>
   </div>
 </section>
